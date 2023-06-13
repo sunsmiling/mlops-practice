@@ -28,6 +28,7 @@ seaborn = "*"
 isort = "*"
 mypy = "*"
 jupyter = "*"
+bentoml = "*"
 
 [requires]
 python_version = "3.9"

@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/mlops-practice/mlruns/810874395326249406/3c2c6da88ef3455c9ac28781805e1d79/artifacts
+end_time: 1686630468695
+entry_point_name: ''
+experiment_id: '810874395326249406'
+lifecycle_stage: active
+run_id: 3c2c6da88ef3455c9ac28781805e1d79
+run_name: Run 41
+run_uuid: 3c2c6da88ef3455c9ac28781805e1d79
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1686630465492
+status: 3
+tags: []
+user_id: codespace

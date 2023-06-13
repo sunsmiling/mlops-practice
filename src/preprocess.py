@@ -13,6 +13,7 @@ CAT_FEATURES = [
 ]
 
 
+
 def extract_floor(floor_info: str) -> int:
     """층수 컬럼에서 실제 층수만 추출합니다.
 
@@ -24,7 +25,11 @@ def extract_floor(floor_info: str) -> int:
         floor_info (str): 층수 정보
     """
     # TODO
+    # Split the string by space
+    floor_list = floor_info.split()
+    floor_str = floor_list[0]
 
+    return int(floor_str) if floor_str.isdigit() else 0
 
 def floor_extractor(df: pd.DataFrame, col: str) -> pd.DataFrame:
     """`extract_floor()` 함수를 `FunctionTransformer`에 사용하기 위한
@@ -49,12 +54,14 @@ def floor_extractor(df: pd.DataFrame, col: str) -> pd.DataFrame:
 preprocess_pipeline = ColumnTransformer(
     transformers=[
         # TODO,
+        ("sqrt_transformer", FunctionTransformer(np.sqrt), ["size"]),
         (
             "floor_extractor",
             FunctionTransformer(floor_extractor, kw_args={"col": "floor"}),
             ["floor"],
         ),
         # TODO,
+        ("target_encoder", TargetEncoder(), CAT_FEATURES),   #.fit과 .transform에 들어갈수있으면 그냥 씀
     ],
     remainder="passthrough",
     verbose_feature_names_out=False,
